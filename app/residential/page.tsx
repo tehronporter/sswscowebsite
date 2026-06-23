@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { CheckCircle, Phone } from "lucide-react";
 import QuoteForm from "@/components/ui/QuoteForm";
 import CTABand from "@/components/sections/CTABand";
@@ -26,8 +27,16 @@ export default function ResidentialPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-ssws-navy py-16">
-        <div className="mx-auto max-w-7xl px-4">
+      <section className="relative bg-ssws-navy overflow-hidden py-16">
+        <Image
+          src="/images/residential-hero.png"
+          alt="Silver State Waste Solutions dumpster in residential Las Vegas driveway"
+          fill
+          className="object-cover object-center opacity-30"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-ssws-navy via-ssws-navy/90 to-ssws-navy/50" aria-hidden />
+        <div className="relative mx-auto max-w-7xl px-4">
           <div className="flex flex-col lg:flex-row gap-12 items-start">
             <div className="flex-1 max-w-xl">
               <p className="text-ssws-skyline font-heading font-semibold uppercase tracking-widest text-sm mb-3">
@@ -77,25 +86,34 @@ export default function ResidentialPage() {
 
       <TrustBar />
 
-      {/* Services list */}
+      {/* Services list + photo */}
       <section className="bg-ssws-mist py-16">
         <div className="mx-auto max-w-7xl px-4">
-          <div className="text-center mb-10">
-            <h2 className="font-heading text-4xl font-bold text-ssws-charcoal uppercase tracking-tight">
-              Common <span className="text-ssws-blue">Residential Uses</span>
-            </h2>
-            <p className="mt-3 text-ssws-steel max-w-xl mx-auto">
-              Our residential dumpster rentals handle any home project — big or small.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {services.map((s) => (
-              <div key={s} className="bg-white border border-gray-200 p-4 flex items-center gap-3">
-                <CheckCircle size={20} className="text-ssws-blue flex-shrink-0" />
-                <span className="text-ssws-charcoal font-medium text-sm">{s}</span>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="font-heading text-4xl font-bold text-ssws-charcoal uppercase tracking-tight mb-3">
+                Common <span className="text-ssws-blue">Residential Uses</span>
+              </h2>
+              <p className="text-ssws-steel mb-8">
+                Our residential dumpster rentals handle any home project — big or small.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {services.map((s) => (
+                  <div key={s} className="bg-white border border-gray-200 p-4 flex items-center gap-3">
+                    <CheckCircle size={20} className="text-ssws-blue flex-shrink-0" />
+                    <span className="text-ssws-charcoal font-medium text-sm">{s}</span>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
+            <div className="relative h-96 lg:h-[480px] overflow-hidden">
+              <Image
+                src="/images/home-renovation.png"
+                alt="Las Vegas home mid-renovation with open walls and natural light"
+                fill
+                className="object-cover object-center"
+              />
+            </div>
           </div>
         </div>
       </section>

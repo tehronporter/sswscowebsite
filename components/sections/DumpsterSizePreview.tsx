@@ -60,19 +60,12 @@ export default function DumpsterSizePreview() {
                     className="object-cover object-center"
                   />
                 ) : (
-                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-gradient-to-br from-ssws-navy to-ssws-blue">
-                    <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle, #fff 1px, transparent 1px)", backgroundSize: "18px 18px" }} aria-hidden />
-                    <svg viewBox="0 0 100 56" width="76" fill="none" className="relative z-10" aria-hidden="true">
-                      <rect x="4" y="18" width="92" height="34" rx="2" fill="white" fillOpacity="0.12" stroke="white" strokeOpacity="0.5" strokeWidth="2"/>
-                      <path d="M4 18 L14 6 H86 L96 18" stroke="white" strokeOpacity="0.5" strokeWidth="2" fill="white" fillOpacity="0.08"/>
-                      <line x1="30" y1="18" x2="30" y2="52" stroke="white" strokeOpacity="0.25" strokeWidth="1.5"/>
-                      <line x1="50" y1="18" x2="50" y2="52" stroke="white" strokeOpacity="0.25" strokeWidth="1.5"/>
-                      <line x1="70" y1="18" x2="70" y2="52" stroke="white" strokeOpacity="0.25" strokeWidth="1.5"/>
-                      <circle cx="20" cy="52" r="4" fill="white" fillOpacity="0.3"/>
-                      <circle cx="80" cy="52" r="4" fill="white" fillOpacity="0.3"/>
-                    </svg>
-                    <span className="font-heading text-white/70 text-sm font-semibold uppercase tracking-widest relative z-10">{d.name}</span>
-                  </div>
+                  <Image
+                    src="/images/dumpster-40yard.png"
+                    alt="Silver State Waste Solutions 40 yard roll-off dumpster"
+                    fill
+                    className="object-cover object-center"
+                  />
                 )}
               </div>
 

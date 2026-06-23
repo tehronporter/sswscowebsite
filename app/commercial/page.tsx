@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { HardHat, Wrench, Building2, Hammer, Phone, ArrowRight } from "lucide-react";
 import QuoteForm from "@/components/ui/QuoteForm";
 import CTABand from "@/components/sections/CTABand";
@@ -47,8 +48,16 @@ export default function CommercialPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-ssws-navy py-16">
-        <div className="mx-auto max-w-7xl px-4">
+      <section className="relative bg-ssws-navy overflow-hidden py-16">
+        <Image
+          src="/images/construction-site.png"
+          alt="Silver State Waste Solutions dumpster at Las Vegas construction site"
+          fill
+          className="object-cover object-center opacity-35"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-ssws-navy via-ssws-navy/90 to-ssws-navy/50" aria-hidden />
+        <div className="relative mx-auto max-w-7xl px-4">
           <div className="flex flex-col lg:flex-row gap-12 items-start">
             <div className="flex-1 max-w-xl">
               <p className="text-ssws-skyline font-heading font-semibold uppercase tracking-widest text-sm mb-3">
@@ -130,8 +139,43 @@ export default function CommercialPage() {
         </div>
       </section>
 
+      {/* In action photos */}
+      <section className="bg-ssws-mist py-16">
+        <div className="mx-auto max-w-7xl px-4">
+          <h2 className="font-heading text-3xl font-bold text-ssws-charcoal uppercase tracking-tight text-center mb-8">
+            Silver State <span className="text-ssws-blue">On the Job</span>
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="relative h-64 overflow-hidden">
+              <Image
+                src="/images/roofing-project.png"
+                alt="Roofers tossing shingles into Silver State Waste Solutions dumpster"
+                fill
+                className="object-cover object-center"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-ssws-navy/70 to-transparent" />
+              <p className="absolute bottom-4 left-4 font-heading font-bold text-white uppercase tracking-wide text-sm">
+                Roofing Projects
+              </p>
+            </div>
+            <div className="relative h-64 overflow-hidden">
+              <Image
+                src="/images/commercial-cleanout.png"
+                alt="Workers loading commercial cleanout debris into Silver State dumpster"
+                fill
+                className="object-cover object-center"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-ssws-navy/70 to-transparent" />
+              <p className="absolute bottom-4 left-4 font-heading font-bold text-white uppercase tracking-wide text-sm">
+                Commercial Cleanouts
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Who we serve */}
-      <section className="bg-ssws-mist py-12">
+      <section className="bg-white py-12">
         <div className="mx-auto max-w-7xl px-4">
           <h2 className="font-heading text-2xl font-bold text-ssws-charcoal uppercase tracking-tight text-center mb-8">
             Who We <span className="text-ssws-blue">Partner With</span>
@@ -140,7 +184,7 @@ export default function CommercialPage() {
             {partners.map((p) => (
               <span
                 key={p}
-                className="bg-white border border-ssws-ice text-ssws-charcoal text-sm font-medium px-4 py-2"
+                className="bg-ssws-mist border border-ssws-ice text-ssws-charcoal text-sm font-medium px-4 py-2"
               >
                 {p}
               </span>
