@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { CheckCircle } from "lucide-react";
 
 const reasons = [
@@ -35,47 +36,16 @@ export default function WhyChoose() {
             </ul>
           </div>
 
-          {/* Right: branded panel — swap the inner content for a real grid of photos when client assets arrive */}
-          <div className="relative bg-ssws-navy overflow-hidden flex items-center justify-center min-h-[340px]">
-            {/* Dot-grid texture */}
-            <div
-              className="absolute inset-0 opacity-10"
-              style={{
-                backgroundImage: "radial-gradient(circle, #619BD0 1px, transparent 1px)",
-                backgroundSize: "24px 24px",
-              }}
-              aria-hidden
+          {/* Right: truck door photo */}
+          <div className="relative overflow-hidden min-h-[340px]">
+            <Image
+              src="/images/truck-door.webp"
+              alt="Silver State Waste Solutions branded truck door"
+              fill
+              className="object-cover object-center"
             />
-            {/* Diagonal accent stripe */}
-            <div
-              className="absolute -right-8 top-0 bottom-0 w-24 bg-ssws-blue/20 skew-x-6"
-              aria-hidden
-            />
-            {/* Content */}
-            <div className="relative z-10 flex flex-col items-center gap-6 px-10 py-10 text-center">
-              {/* Watermark logo */}
-              <div className="opacity-20">
-                <svg viewBox="0 0 120 50" width="160" fill="white" aria-hidden="true">
-                  <text x="0" y="38" fontFamily="sans-serif" fontSize="28" fontWeight="900" letterSpacing="-1">SILVER STATE</text>
-                </svg>
-              </div>
-              <p className="text-ssws-ice/70 text-xs uppercase tracking-widest font-heading">
-                Waste Solutions
-              </p>
-              {/* Stats row */}
-              <div className="grid grid-cols-3 gap-6 mt-2">
-                {[
-                  { num: "3", label: "Trucks Ready" },
-                  { num: "Las Vegas", label: "Service Area" },
-                  { num: "Same-Day", label: "When Available" },
-                ].map(({ num, label }) => (
-                  <div key={label} className="flex flex-col items-center gap-1">
-                    <span className="font-heading font-bold text-white text-xl leading-tight">{num}</span>
-                    <span className="text-ssws-ice/60 text-xs uppercase tracking-wide leading-tight">{label}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
+            {/* Subtle bottom gradient for brand continuity */}
+            <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-ssws-navy/60 to-transparent" aria-hidden />
           </div>
         </div>
       </div>

@@ -126,7 +126,7 @@ export default function ContactPage() {
                   Dumpster Sizes Available
                 </h3>
                 <ul className="space-y-2">
-                  {["15 Yard", "Lowboy (Heavy Debris)", "40 Yard"].map((size) => (
+                  {["20 Yard Lowboy", "40 Yard"].map((size) => (
                     <li key={size} className="flex items-center gap-2 text-ssws-steel text-sm">
                       <span className="w-2 h-2 rounded-full bg-ssws-blue flex-shrink-0" />
                       {size}

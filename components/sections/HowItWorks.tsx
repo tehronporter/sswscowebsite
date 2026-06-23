@@ -11,7 +11,7 @@ const steps = [
     num: "2",
     icon: Truck,
     title: "Choose Your Size",
-    desc: "We'll help you pick the right 15 yard, lowboy, or 40 yard for your project.",
+    desc: "We'll help you pick the right 20 yard lowboy or 40 yard for your project.",
   },
   {
     num: "3",

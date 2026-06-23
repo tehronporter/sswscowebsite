@@ -1,22 +1,22 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Phone, FileText } from "lucide-react";
 import QuoteForm from "@/components/ui/QuoteForm";
 
 export default function HeroHome() {
   return (
     <section className="relative bg-ssws-navy overflow-hidden min-h-[580px] flex items-center">
-      {/* Subtle dot-grid texture — replace with fleet photo when client assets arrive */}
-      <div
-        className="absolute inset-0 opacity-[0.07]"
-        style={{
-          backgroundImage: "radial-gradient(circle, #619BD0 1px, transparent 1px)",
-          backgroundSize: "28px 28px",
-        }}
-        aria-hidden
+      {/* Fleet photo background */}
+      <Image
+        src="/images/trucks-on-strip.png"
+        alt="Silver State Waste Solutions fleet trucks on the Las Vegas Strip"
+        fill
+        className="object-cover object-center opacity-40"
+        priority
       />
-      {/* Left-side gradient to keep text readable over any future photo */}
+      {/* Gradient overlay to keep text readable */}
       <div
-        className="absolute inset-0 bg-gradient-to-r from-ssws-navy via-ssws-navy/90 to-ssws-blue/60"
+        className="absolute inset-0 bg-gradient-to-r from-ssws-navy via-ssws-navy/85 to-ssws-navy/50"
         aria-hidden
       />
 

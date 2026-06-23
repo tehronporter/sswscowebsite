@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { CheckCircle, Phone } from "lucide-react";
 import CTABand from "@/components/sections/CTABand";
 
@@ -82,19 +83,30 @@ export default function AboutPage() {
               </h2>
               <div className="space-y-4 text-ssws-steel leading-relaxed">
                 <p>
-                  We started Silver State Waste Solutions with a simple goal: provide Las Vegas with
-                  a dumpster rental service that actually shows up on time, communicates clearly, and
-                  makes the whole process easy.
+                  Silver State Waste Solutions was built from the ground up by four hardworking,
+                  blue-collar men who understand what it truly takes to run a job site. With
+                  backgrounds rooted in hands-on labor, construction, and real-world operations, we
+                  know that time, reliability, and efficiency aren&apos;t luxuries — they&apos;re
+                  necessities.
                 </p>
                 <p>
-                  We&apos;ve served homeowners clearing decades of clutter, contractors working
-                  tight construction schedules, and businesses managing large-scale property
-                  cleanouts. Every job teaches us something about what Las Vegas customers actually
-                  need.
+                  We started this company with a simple mission: provide dependable, no-nonsense
+                  waste solutions for people who get the job done. From active construction sites
+                  and commercial projects to roofing jobs and large-scale demolition, we built our
+                  business around the contractors and crews who need a partner they can count on —
+                  not just another vendor.
                 </p>
                 <p>
-                  What we&apos;ve learned: people want a company that answers the phone, delivers
-                  when promised, and charges a fair price. That&apos;s what we do.
+                  What we&apos;ve learned working alongside crews across Las Vegas: contractors need
+                  a company that shows up on time, communicates without the runaround, and keeps job
+                  sites moving without interruption. We&apos;re not a corporate call center —
+                  we&apos;re a team that values hard work, accountability, and doing things right
+                  the first time.
+                </p>
+              </div>
+              <div className="mt-8 border-l-4 border-ssws-blue pl-5">
+                <p className="font-heading text-xl font-bold text-ssws-navy uppercase tracking-wide">
+                  Built For Jobs That Don&apos;t Stop.
                 </p>
               </div>
             </div>
@@ -102,16 +114,13 @@ export default function AboutPage() {
             {/* Photo grid — swap divs with next/image when client photos arrive */}
             <div className="grid grid-cols-2 gap-3">
               {/* Fleet Photo */}
-              <div className="col-span-2 bg-gradient-to-br from-ssws-navy to-ssws-blue h-52 flex flex-col items-center justify-center relative overflow-hidden">
-                <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle, #fff 1px, transparent 1px)", backgroundSize: "20px 20px" }} aria-hidden />
-                <svg viewBox="0 0 80 40" width="72" fill="none" className="relative z-10 mb-2" aria-hidden>
-                  <rect x="2" y="14" width="56" height="22" rx="1" fill="white" fillOpacity="0.15" stroke="white" strokeOpacity="0.4" strokeWidth="1.5"/>
-                  <path d="M58 28 L64 18 L74 18 L78 28 Z" fill="white" fillOpacity="0.12" stroke="white" strokeOpacity="0.4" strokeWidth="1.5"/>
-                  <circle cx="14" cy="37" r="3.5" fill="white" fillOpacity="0.3"/>
-                  <circle cx="46" cy="37" r="3.5" fill="white" fillOpacity="0.3"/>
-                  <circle cx="66" cy="37" r="3.5" fill="white" fillOpacity="0.3"/>
-                </svg>
-                <span className="text-white/60 text-xs font-heading uppercase tracking-widest relative z-10">Fleet Photo</span>
+              <div className="col-span-2 relative h-52 overflow-hidden">
+                <Image
+                  src="/images/trucks-on-strip.png"
+                  alt="Silver State Waste Solutions fleet trucks on the Las Vegas Strip at night"
+                  fill
+                  className="object-cover object-center"
+                />
               </div>
               {/* Team Photo */}
               <div className="bg-gradient-to-br from-ssws-blue to-ssws-navy h-36 flex flex-col items-center justify-center relative overflow-hidden">
@@ -124,17 +133,13 @@ export default function AboutPage() {
                 <span className="text-white/60 text-xs font-heading uppercase tracking-widest relative z-10">Team Photo</span>
               </div>
               {/* Job Site Photo */}
-              <div className="bg-gradient-to-br from-ssws-navy to-ssws-blue h-36 flex flex-col items-center justify-center relative overflow-hidden">
-                <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle, #fff 1px, transparent 1px)", backgroundSize: "18px 18px" }} aria-hidden />
-                <svg viewBox="0 0 40 40" width="40" fill="none" className="relative z-10 mb-2" aria-hidden>
-                  <rect x="4" y="22" width="32" height="14" rx="1" fill="white" fillOpacity="0.15" stroke="white" strokeOpacity="0.4" strokeWidth="1.5"/>
-                  <path d="M8 22 L12 14 L28 14 L32 22" fill="white" fillOpacity="0.08" stroke="white" strokeOpacity="0.4" strokeWidth="1.5"/>
-                  <line x1="16" y1="22" x2="16" y2="36" stroke="white" strokeOpacity="0.25" strokeWidth="1"/>
-                  <line x1="24" y1="22" x2="24" y2="36" stroke="white" strokeOpacity="0.25" strokeWidth="1"/>
-                  <circle cx="10" cy="36" r="2.5" fill="white" fillOpacity="0.3"/>
-                  <circle cx="30" cy="36" r="2.5" fill="white" fillOpacity="0.3"/>
-                </svg>
-                <span className="text-white/60 text-xs font-heading uppercase tracking-widest relative z-10">Job Site Photo</span>
+              <div className="relative h-36 overflow-hidden">
+                <Image
+                  src="/images/dumpster-20yard.webp"
+                  alt="Silver State Waste Solutions 20 yard dumpster on job site"
+                  fill
+                  className="object-cover object-center"
+                />
               </div>
             </div>
           </div>

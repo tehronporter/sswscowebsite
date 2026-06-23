@@ -12,8 +12,7 @@ const navLinks = [
     label: "Dumpster Sizes",
     href: "/dumpster-sizes",
     children: [
-      { label: "15 Yard", href: "/dumpster-sizes#15-yard" },
-      { label: "Lowboy", href: "/dumpster-sizes#lowboy" },
+      { label: "20 Yard Lowboy", href: "/dumpster-sizes#lowboy" },
       { label: "40 Yard", href: "/dumpster-sizes#40-yard" },
     ],
   },
@@ -56,9 +55,9 @@ export default function Header() {
             <Image
               src="/images/logo.png"
               alt="Silver State Waste Solutions"
-              width={260}
-              height={80}
-              className="h-16 md:h-20 w-auto object-contain"
+              width={320}
+              height={100}
+              className="h-20 md:h-28 w-auto object-contain"
               priority
             />
           </Link>

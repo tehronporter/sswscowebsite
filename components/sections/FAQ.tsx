@@ -5,8 +5,8 @@ import { ChevronDown } from "lucide-react";
 
 const faqs = [
   {
-    q: "What's the difference between the lowboy and the 15-yard dumpster?",
-    a: "The lowboy is designed for heavy, dense materials like concrete, dirt, asphalt, and rock. It has low side walls (2 feet) so you can easily load heavy debris by hand, and it's priced to account for weight — not volume. The 15-yard is taller and suited for lighter bulk materials: household cleanouts, roofing shingles, wood, furniture, and yard waste.",
+    q: "What's the difference between the 20 yard lowboy and the 40 yard dumpster?",
+    a: "The 20 yard lowboy is our heavy-debris specialist — low side walls (2 feet) make it easy to load concrete, dirt, asphalt, rock, and dense materials by hand. It's priced by weight, not volume. The 40 yard is our high-volume container built for large construction projects, demolition, major renovations, and commercial cleanouts where you need serious capacity. Not sure which fits your job? Give us a call.",
   },
   {
     q: "What can I put in a dumpster?",

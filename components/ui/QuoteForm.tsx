@@ -9,7 +9,7 @@ interface QuoteFormProps {
   className?: string;
 }
 
-const dumpsterOptions = ["15 Yard", "Lowboy", "40 Yard", "Not Sure"];
+const dumpsterOptions = ["20 Yard Lowboy", "40 Yard", "Not Sure"];
 const projectTypes = [
   "Home Cleanout",
   "Garage Cleanout",
@@ -103,22 +103,24 @@ export default function QuoteForm({
         </div>
       </div>
 
+      {/* Email — always shown */}
+      <div>
+        <label htmlFor="email" className="block text-xs font-semibold text-ssws-charcoal mb-1">
+          Email Address
+        </label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          placeholder="you@example.com"
+          className="w-full border border-gray-300 px-3 py-2.5 text-sm text-ssws-charcoal placeholder-gray-400 focus:outline-none focus:border-ssws-blue focus:ring-1 focus:ring-ssws-blue"
+        />
+      </div>
+
       {/* Full form extra fields */}
       {variant === "full" && (
         <>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <div>
-              <label htmlFor="email" className="block text-xs font-semibold text-ssws-charcoal mb-1">
-                Email Address
-              </label>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                placeholder="you@example.com"
-                className="w-full border border-gray-300 px-3 py-2.5 text-sm text-ssws-charcoal placeholder-gray-400 focus:outline-none focus:border-ssws-blue focus:ring-1 focus:ring-ssws-blue"
-              />
-            </div>
             <div>
               <label htmlFor="address" className="block text-xs font-semibold text-ssws-charcoal mb-1">
                 Service Address
@@ -131,17 +133,17 @@ export default function QuoteForm({
                 className="w-full border border-gray-300 px-3 py-2.5 text-sm text-ssws-charcoal placeholder-gray-400 focus:outline-none focus:border-ssws-blue focus:ring-1 focus:ring-ssws-blue"
               />
             </div>
-          </div>
-          <div>
-            <label htmlFor="deliveryDate" className="block text-xs font-semibold text-ssws-charcoal mb-1">
-              Preferred Delivery Date
-            </label>
-            <input
-              id="deliveryDate"
-              name="deliveryDate"
-              type="date"
-              className="w-full border border-gray-300 px-3 py-2.5 text-sm text-ssws-charcoal focus:outline-none focus:border-ssws-blue focus:ring-1 focus:ring-ssws-blue"
-            />
+            <div>
+              <label htmlFor="deliveryDate" className="block text-xs font-semibold text-ssws-charcoal mb-1">
+                Preferred Delivery Date
+              </label>
+              <input
+                id="deliveryDate"
+                name="deliveryDate"
+                type="date"
+                className="w-full border border-gray-300 px-3 py-2.5 text-sm text-ssws-charcoal focus:outline-none focus:border-ssws-blue focus:ring-1 focus:ring-ssws-blue"
+              />
+            </div>
           </div>
         </>
       )}

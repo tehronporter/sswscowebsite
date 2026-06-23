@@ -31,8 +31,7 @@ export const localBusinessSchema = {
     "@type": "OfferCatalog",
     name: "Dumpster Rental Services",
     itemListElement: [
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "15 Yard Dumpster Rental" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Lowboy Dumpster Rental" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "20 Yard Lowboy Dumpster Rental" } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "40 Yard Dumpster Rental" } },
     ],
   },

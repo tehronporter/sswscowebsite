@@ -12,6 +12,40 @@ type QuotePayload = {
   formType?: string;
 };
 
+function formatConfirmation(data: Pick<QuotePayload, "name" | "phone" | "projectType" | "dumpsterSize">): string {
+  return `
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"/></head>
+<body style="font-family:Arial,sans-serif;background:#f4f7fa;margin:0;padding:32px;">
+  <div style="max-width:520px;margin:0 auto;background:#fff;border-top:4px solid #105499;">
+    <div style="background:#052F66;padding:20px 24px;">
+      <p style="color:#B1C7DA;font-size:11px;text-transform:uppercase;letter-spacing:2px;margin:0 0 4px;">Silver State Waste Solutions</p>
+      <h1 style="color:#fff;font-size:20px;margin:0;">We got your quote request!</h1>
+    </div>
+    <div style="padding:24px;">
+      <p style="font-size:14px;color:#1E2328;margin:0 0 16px;">Hi ${data.name},</p>
+      <p style="font-size:14px;color:#626367;line-height:1.6;margin:0 0 16px;">
+        Thanks for reaching out to Silver State Waste Solutions. We've received your quote request and will get back to you shortly.
+      </p>
+      ${data.dumpsterSize || data.projectType ? `
+      <div style="background:#f4f7fa;border-left:4px solid #105499;padding:12px 16px;margin:0 0 16px;">
+        ${data.dumpsterSize ? `<p style="font-size:13px;color:#1E2328;margin:0 0 4px;"><strong>Dumpster Size:</strong> ${data.dumpsterSize}</p>` : ""}
+        ${data.projectType ? `<p style="font-size:13px;color:#1E2328;margin:0;"><strong>Project Type:</strong> ${data.projectType}</p>` : ""}
+      </div>` : ""}
+      <p style="font-size:14px;color:#626367;line-height:1.6;margin:0 0 16px;">
+        For a faster response, call or text us directly:
+      </p>
+      <a href="tel:7024600726" style="display:inline-block;background:#105499;color:#fff;padding:12px 24px;font-size:14px;font-weight:600;text-decoration:none;letter-spacing:0.05em;">(702) 460-0726</a>
+    </div>
+    <div style="padding:16px 24px;background:#f4f7fa;border-top:1px solid #e5e7eb;">
+      <p style="font-size:12px;color:#95989D;margin:0;">Silver State Waste Solutions — Serving Las Vegas, North Las Vegas &amp; Henderson</p>
+    </div>
+  </div>
+</body>
+</html>`;
+}
+
 function formatBody(data: QuotePayload): string {
   const rows = [
     ["Name", data.name],
@@ -70,13 +104,25 @@ export async function POST(request: Request) {
       const { Resend } = await import("resend");
       const resend = new Resend(apiKey);
 
+      const fromAddress = process.env.QUOTE_EMAIL_FROM ?? "quotes@sswsco.com";
+
       await resend.emails.send({
-        from: process.env.QUOTE_EMAIL_FROM ?? "quotes@sswsco.com",
+        from: fromAddress,
         to: process.env.QUOTE_EMAIL_TO ?? "info@sswsco.com",
         replyTo: email ?? undefined,
         subject: `New Quote Request — ${formType ?? "General"} — ${name}`,
         html: formatBody({ name, phone, email, address, projectType, dumpsterSize, deliveryDate, details, formType }),
       });
+
+      if (email) {
+        await resend.emails.send({
+          from: fromAddress,
+          to: email,
+          replyTo: process.env.QUOTE_EMAIL_TO ?? "info@sswsco.com",
+          subject: "We received your quote request — Silver State Waste Solutions",
+          html: formatConfirmation({ name, phone, projectType, dumpsterSize }),
+        });
+      }
     } else {
       // No API key set — log to console for local dev
       console.log("Quote request received (no RESEND_API_KEY set):", {
