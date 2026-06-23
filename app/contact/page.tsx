@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Phone, Mail, Globe, MapPin, Clock } from "lucide-react";
+import { Phone, Mail, Globe, MapPin, Clock, MessageSquare, Briefcase } from "lucide-react";
 import QuoteForm from "@/components/ui/QuoteForm";
 import { localBusinessSchema } from "@/lib/schema";
 
@@ -141,6 +141,57 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+      {/* Email routing */}
+      <section className="bg-white py-12 border-t border-gray-100">
+        <div className="mx-auto max-w-7xl px-4">
+          <h2 className="font-heading text-2xl font-bold text-ssws-charcoal uppercase tracking-tight mb-6">
+            Other Ways to Reach Us
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="border-2 border-gray-200 p-6 flex gap-4 items-start">
+              <div className="w-10 h-10 bg-ssws-mist border-2 border-ssws-blue flex items-center justify-center flex-shrink-0">
+                <MessageSquare size={18} className="text-ssws-blue" />
+              </div>
+              <div>
+                <h3 className="font-heading font-bold text-ssws-charcoal uppercase tracking-wide text-sm mb-1">
+                  General Questions
+                </h3>
+                <p className="text-ssws-steel text-sm leading-relaxed mb-3">
+                  Have more questions or need extra info? Send us an email and we&apos;ll get back to you.
+                </p>
+                <a
+                  href="mailto:info@sswsco.com"
+                  className="inline-flex items-center gap-2 text-ssws-blue font-semibold text-sm hover:underline"
+                >
+                  <Mail size={14} />
+                  info@sswsco.com
+                </a>
+              </div>
+            </div>
+            <div className="border-2 border-ssws-navy p-6 flex gap-4 items-start">
+              <div className="w-10 h-10 bg-ssws-navy flex items-center justify-center flex-shrink-0">
+                <Briefcase size={18} className="text-ssws-skyline" />
+              </div>
+              <div>
+                <h3 className="font-heading font-bold text-ssws-charcoal uppercase tracking-wide text-sm mb-1">
+                  Larger Contracts & Partnerships
+                </h3>
+                <p className="text-ssws-steel text-sm leading-relaxed mb-3">
+                  Have a bigger contract you&apos;d like to discuss? Reach our growth team directly.
+                </p>
+                <a
+                  href="mailto:growth@sswsco.com"
+                  className="inline-flex items-center gap-2 text-ssws-blue font-semibold text-sm hover:underline"
+                >
+                  <Mail size={14} />
+                  growth@sswsco.com
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Hours + Service Area */}
       <section className="bg-white py-16">
         <div className="mx-auto max-w-7xl px-4">

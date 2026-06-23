@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Phone, Weight, CalendarDays } from "lucide-react";
+import { ArrowRight, Phone, Weight, CalendarDays, Scale } from "lucide-react";
 import CTABand from "@/components/sections/CTABand";
 import FAQ from "@/components/sections/FAQ";
 
@@ -18,6 +18,7 @@ const dumpsters = [
     dims: "8' W × 14' L × 2' H (low profile)",
     capacity: "For heavy debris — concrete, dirt, asphalt",
     rental: "7-10 day rental included",
+    includedTons: "Included tonnage — contact us to confirm",
     idealFor: [
       "Concrete & Dirt",
       "Asphalt & Gravel",
@@ -27,7 +28,7 @@ const dumpsters = [
       "Home Cleanouts & Renovations",
     ],
     featured: true,
-    note: "The lowboy's low walls make it easy to load heavy materials by hand. Weight limits apply — contact us to confirm.",
+    note: "The lowboy's low walls make it easy to load heavy materials by hand. Overage tonnage is billed beyond the included amount.",
   },
   {
     id: "40-yard",
@@ -35,6 +36,7 @@ const dumpsters = [
     dims: "8' W × 22' L × 8' H",
     capacity: "Holds up to 8 tons",
     rental: "7-10 day rental included",
+    includedTons: "6 tons included — overage billed beyond that",
     idealFor: [
       "Large Construction Projects",
       "Demolition",
@@ -117,6 +119,7 @@ export default function DumpsterSizesPage() {
                   <div className="space-y-1.5 text-ssws-steel text-sm border-b border-gray-100 pb-4">
                     <p className="flex items-center gap-1.5"><Weight size={14} className="text-ssws-skyline" />{d.capacity}</p>
                     <p className="flex items-center gap-1.5"><CalendarDays size={14} className="text-ssws-skyline" />{d.rental}</p>
+                    <p className="flex items-center gap-1.5"><Scale size={14} className="text-ssws-skyline" />{d.includedTons}</p>
                   </div>
 
                   <div>

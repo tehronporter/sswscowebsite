@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Weight, CalendarDays } from "lucide-react";
+import { ArrowRight, Weight, CalendarDays, Scale } from "lucide-react";
 
 const dumpsters = [
   {
@@ -8,6 +8,7 @@ const dumpsters = [
     name: "20 Yard Lowboy",
     capacity: "For heavy debris",
     rental: "7-10 day rental included",
+    includedTons: "Included tonnage — contact us to confirm",
     idealFor: ["Concrete & Dirt", "Asphalt & Gravel", "Rock & Fill Material", "Home Cleanouts"],
     href: "/dumpster-sizes#lowboy",
     featured: true,
@@ -17,6 +18,7 @@ const dumpsters = [
     name: "40 Yard",
     capacity: "Holds up to 8 tons",
     rental: "7-10 day rental included",
+    includedTons: "6 tons included — overage billed beyond that",
     idealFor: ["Large Construction", "Demolition", "Commercial Cleanouts", "Major Renovations"],
     href: "/dumpster-sizes#40-yard",
   },
@@ -81,6 +83,7 @@ export default function DumpsterSizePreview() {
                 <div className="flex flex-col gap-1.5 text-ssws-steel text-sm">
                   <span className="flex items-center gap-1.5"><Weight size={14} className="text-ssws-skyline" />{d.capacity}</span>
                   <span className="flex items-center gap-1.5"><CalendarDays size={14} className="text-ssws-skyline" />{d.rental}</span>
+                  <span className="flex items-center gap-1.5"><Scale size={14} className="text-ssws-skyline" />{d.includedTons}</span>
                 </div>
                 <div>
                   <p className="text-xs font-heading font-semibold text-ssws-blue uppercase tracking-wide mb-2">
